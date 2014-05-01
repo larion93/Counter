@@ -32,6 +32,12 @@ void numbers_output(unsigned long count)
    PORTC &=~(1<<i);
   }
 }
+void button_checking(short number)
+{
+	count+=number;
+	numbers_partition(count);
+	_delay_ms(50);
+}
 void numbers_partition(unsigned long count)
 {
 
@@ -65,27 +71,19 @@ int main( void )
   {
 	 if (bit_is_clear(PINB, PB0)) 
      {
-	count++;
-	numbers_partition(count);
-	_delay_ms(50);
+	button_checking(1);
      }
      if (bit_is_clear(PINB, PB1)) 
      {
-	count--;
-	numbers_partition(count); 
-	_delay_ms(50);
+    button_checking(-1);
      }
      if (bit_is_clear(PINB, PB2)) 
      {
-	count+=18; 
-	numbers_partition(count);
-	_delay_ms(50);
+	button_checking(15);
      }
      if (bit_is_clear(PINB, PB6)) 
      {
-	count-=21;
-	numbers_partition(count);
-	_delay_ms(50);
+	button_checking(-23);
      }
      if (count>=10000) {count=0;}
   }
