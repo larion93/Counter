@@ -34,17 +34,17 @@ void numbers_output(unsigned long count)
 }
 void button_checking(short number)
 {
-	if (count+number<10000)
-	{
-	count+=number;
-	numbers_partition(count);
-	_delay_ms(30);
-	}
-	else
-	{
-	count=0;
-	numbers_partition(count);
-	}
+    if (count+number<10000)
+    {
+      count+=number;
+      numbers_partition(count);
+     _delay_ms(30);
+    }
+    else
+    {
+     count=0;
+     numbers_partition(count);
+    }
 }
 void numbers_partition(unsigned long count)
 {
@@ -77,22 +77,22 @@ int main( void )
   sei();
   while(1)
   {
-	 if (bit_is_clear(PINB, PB0)) 
+     if (bit_is_clear(PINB, PB0)) 
      {
-	button_checking(1);
+    button_checking(1);
      }
      if (bit_is_clear(PINB, PB1)) 
      {
     button_checking(-1);
-	 }
+     }
      if (bit_is_clear(PINB, PB2)) 
      {
-	button_checking(15);
+    button_checking(15);
      }
      if (bit_is_clear(PINB, PB6)) 
      {
     button_checking(-23);
-	 }
+     }
   }
   return 0;
 }
