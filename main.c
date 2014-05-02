@@ -42,7 +42,7 @@ void numbers_partition(unsigned long count)
 {
 
    unsigned short i=0;
-   while (count!=0)
+   while (count >= 0 && i<4)
   {
    digits[i]=count%10;
    count=count/10;
