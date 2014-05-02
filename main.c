@@ -75,16 +75,22 @@ int main( void )
      }
      if (bit_is_clear(PINB, PB1)) 
      {
+	 if (count-1<1000)
+	 {
     button_checking(-1);
-     }
+	 }
+	 }
      if (bit_is_clear(PINB, PB2)) 
      {
 	button_checking(15);
      }
      if (bit_is_clear(PINB, PB6)) 
      {
-	button_checking(-23);
-     }
+	 if (count-23<1000)
+	 {
+    button_checking(-23);
+	 }
+	 }
      if (count>=10000) {count=0;}
   }
   return 0;
